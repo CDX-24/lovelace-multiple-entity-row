@@ -28,6 +28,9 @@ jobs:
       run: yarn add webpack --dev
     - name: build webpack
       run: webpack -c webpack.config.js
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Built file
     - uses: actions/upload-artifact@v3
       with:
         name: output
