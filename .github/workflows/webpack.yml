@@ -25,6 +25,6 @@ jobs:
     - name: Yarn lint
       run: yarn lint
     - name: Install webpack
-      run: npx webpack
+      run: yarn add webpack --dev
     - name: build webpack
       run: webpack -c webpack.config.js
