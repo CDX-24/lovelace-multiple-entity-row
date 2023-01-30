@@ -28,3 +28,7 @@ jobs:
       run: yarn add webpack --dev
     - name: build webpack
       run: webpack -c webpack.config.js
+    - uses: actions/upload-artifact@v3
+      with:
+        name: output
+        path: multiple-entity-row.js
