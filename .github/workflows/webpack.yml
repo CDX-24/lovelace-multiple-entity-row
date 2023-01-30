@@ -2,8 +2,7 @@ name: Build assets
 on:
   push:
     branches:
-    - master
-    - staging
+      - main
 
 jobs:
   yarn:
@@ -23,10 +22,9 @@ jobs:
     - name: Yarn install
       if: steps.yarn-cache-node-modules.outputs.cache-hit != 'true'
       run: yarn install
-    - name: Yarn build
-      run: yarn run encore production
-    - name: Archive production artifacts
-      uses: actions/upload-artifact@v1
-      with:
-        name: build
-        path: public/build
+    - name: Yarn lint
+      run: yarn lint
+    - name: Install webpack
+      run: npx webpack
+    - name: build webpack
+      run: webpack -c webpack.config.js
