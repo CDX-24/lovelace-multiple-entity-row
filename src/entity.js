@@ -77,7 +77,3 @@ export const entityStyles = (config) =>
               .map((key) => `${key}: ${config.styles[key]};`)
               .join('')
         : '';
-
-export const entityIconColor = (config) =>{
-    return config.icon_color;
-};
